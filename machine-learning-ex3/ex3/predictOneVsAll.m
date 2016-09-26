@@ -30,8 +30,13 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+prob = sigmoid(X*all_theta');
+% size(prob)
 
+[x, ix] = max(prob, [], 2);
+p = ix;
 
+% size(p)
 
 
 
