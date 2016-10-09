@@ -19,16 +19,13 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+regularizationTerm = (lambda/(2*m)) * sum(theta(2:end) .^ 2);
+vectorizedCostFunction = (1/(2*m)) * (X*theta - y)' * (X*theta - y);
+J = vectorizedCostFunction + regularizationTerm;
 
-
-
-
-
-
-
-
-
-
+vectorizedGrad = (1/m) * X' * (X*theta - y);
+regularizationGradTerm = (lambda/m) * [0; theta(2:end)];
+grad = vectorizedGrad + regularizationGradTerm;
 
 % =========================================================================
 
