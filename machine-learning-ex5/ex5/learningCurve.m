@@ -62,18 +62,14 @@ error_val   = zeros(m, 1);
 
     sizeOfTrainingSubset = size(trainingSubset, 1);
     % trainingSubset = [ones(sizeOfTrainingSubset, 1) trainingSubset];
-    [theta] = trainLinearReg(trainingSubset, ySubset, 0)
+    [theta] = trainLinearReg(trainingSubset, ySubset, lambda)
 
 	[error_train_i, grad] = linearRegCostFunction(trainingSubset, ySubset, theta, 0);
 	error_train(i) = error_train_i;
 
-	[error_val_i, grad] = linearRegCostFunction(Xval, yval, theta, lambda);
+	[error_val_i, grad] = linearRegCostFunction(Xval, yval, theta, 0);
 	error_val(i) = error_val_i;   
 end
-
-
-
-
 
 % -------------------------------------------------------------
 
