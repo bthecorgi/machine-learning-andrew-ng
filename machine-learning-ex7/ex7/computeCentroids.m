@@ -25,13 +25,22 @@ centroids = zeros(K, n);
 %
 % Note: You can use a for-loop over the centroids to compute this.
 %
+for i = 1:K	
+	sumOfXs = 0;
+	numOfXs = 0;
+	for j = 1:m
+		centroidIndex = idx(j);
 
+		if centroidIndex == i
+			sumOfXs = sumOfXs + X(j,:);
+			numOfXs = numOfXs + 1;
+		endif
+	end
 
+	newCentroid = sumOfXs / numOfXs;
 
-
-
-
-
+	centroids(i, :) = newCentroid;
+end
 
 % =============================================================
 
